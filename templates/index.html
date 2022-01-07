@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="myhead">
+        <h1 style="padding-left: 10%;">Local File System</h1>
+        <h6 style="padding-left: 0%;"><strong>Current Directory: </strong>{{ mypath }}</h6>
+    </div>
+    <div>
+        <h5 style="padding-left: 5%;">From here: </h5><br>
+        <table class="content">
+            <tr>
+                <th>Serial #</th>
+                <th>Name</th>
+                <th>Type/Size</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td class="serial">0</td>
+                <td><a href="/cd?path=.." class="directory">..</a></td>
+                <td>Directory</td>
+                <td></td>
+            </tr>
+            {% for item in file_list[7:-3] %}
+            <tr>
+                <td class="serial">{{ file_list[7:-3].index(item)+1 }}</td>
+                {% if item[17:].split()[0] == "<DIR>" %}
+                    <td><a href="/cd?path={{ mypath +'\\'+ item[17:].split()[1] }}" class="directory">{{ item[17:].split()[1] }}</a></td>
+                    <td>Directory</td>
+                {% else %}
+                    <td><a href="/view?file={{ mypath +'\\'+ item[17:].split()[1] }}" class="file">{{ item[17:].split()[1] }}</a></td>
+                    <td>{{ item[17:].split()[0] }}</td>
+                {% endif %}
+                <td><a href="#" class="os-action">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock body %}

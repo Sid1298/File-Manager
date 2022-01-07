@@ -1,0 +1,33 @@
+.content{
+    width: 75%;
+    color: #D8B9C3;
+    table-layout: fixed;
+    border-collapse: collapse;
+    padding-right: 20%;
+    padding-left: 20%;
+    /* border: 3px solid #827397;*/
+}
+
+.myhead{
+    margin-left: 40%;
+}
+
+.os-action{
+    color: crimson;
+}
+
+.serial{
+    padding-left: 15%;
+}
+
+td{
+    padding-left: 2%;
+}
+
+tbody tr:nth-child(odd){
+    background-color: gray;
+}
+  
+tbody tr:nth-child(even) {
+background-color: darkgray;
+}
