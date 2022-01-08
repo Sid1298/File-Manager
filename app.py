@@ -21,5 +21,19 @@ def view():
     return subprocess.check_output('type '+ request.args.get('file'), shell=True).decode('utf-8').replace('\n', '<br>')
     # return request.args.get('file')
 
+@app.route('/deldir')
+def del_dir():
+    os.rmdir(request.args.get('dir'))
+    return redirect('/')
+
+@app.route('/delfile')
+def del_file():
+    os.remove(request.args.get('dfile'))
+    return redirect('/')
+
+@app.route('/new_directory')
+def new_directory(methods=['Get', 'Post']):
+    return render_template('new_folder_form.html')
+
 if __name__ == "__main__":
     app.run(debug=True)

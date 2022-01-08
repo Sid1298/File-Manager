@@ -7,6 +7,7 @@
     </div>
     <div>
         <h5 style="padding-left: 5%;">From here: </h5><br>
+        <!-- <a href="/new_directory"><input style="margin-bottom: 5%;" type="button" value="Make new directory"></a> -->
         <table class="content">
             <tr>
                 <th>Serial #</th>
@@ -22,15 +23,16 @@
             </tr>
             {% for item in file_list[7:-3] %}
             <tr>
-                <td class="serial">{{ file_list[7:-3].index(item)+1 }}</td>
+                <td class="serial">{{ file_list[7:-3].index(item)+1 }}</td>  <!-- serial number -->
                 {% if item[17:].split()[0] == "<DIR>" %}
-                    <td><a href="/cd?path={{ mypath +'\\'+ item[17:].split()[1] }}" class="directory">{{ item[17:].split()[1] }}</a></td>
+                    <td><a href="/cd?path={{ mypath + '\\' + ' '.join(item[17:].split()[1:]) }}" class="directory">{{ " ".join(item[17:].split()[1:]) }}</a></td> <!-- name of folder -->
                     <td>Directory</td>
+                    <td><a href="/deldir?dir={{ mypath + '\\' + ' '.join(item[17:].split()[1:]) }}" class="os-action">Delete</a></td>
                 {% else %}
-                    <td><a href="/view?file={{ mypath +'\\'+ item[17:].split()[1] }}" class="file">{{ item[17:].split()[1] }}</a></td>
+                    <td><a href='/view?file={{ mypath + "\\" + " ".join(item[17:].split()[1:]) }}' class="file">{{ " ".join(item[17:].split()[1:]) }}</a></td> <!-- name of file -->
                     <td>{{ item[17:].split()[0] }}</td>
+                    <td><a href="/delfile?dfile={{ mypath + '\\' + ' '.join(item[17:].split()[1:]) }}" class="os-action">Delete</a></td>
                 {% endif %}
-                <td><a href="#" class="os-action">Delete</a></td>
             </tr>
             {% endfor %}
         </table>
