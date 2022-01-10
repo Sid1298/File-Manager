@@ -31,9 +31,17 @@ def del_file():
     os.remove(request.args.get('dfile'))
     return redirect('/')
 
-@app.route('/new_directory')
-def new_directory(methods=['Get', 'Post']):
-    return render_template('new_folder_form.html')
+@app.route('/md')
+def md():
+    try:
+        os.mkdir(request.args.get('new_folder'))
+    except FileExistsError:
+        return redirect('/')
+    return redirect('/')
+
+@app.route('/mf')
+def mf():
+    return render_template('new_file.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

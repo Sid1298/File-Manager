@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <form action="/" style="margin-top: 5%;">
+        <input type="text" name="file_name" id="file_name" placeholder="File Name here"/><br>
+        <textarea name="file_content" id=file_content placeholder="File Content here" class="file_content" rows="10" cols="50"></textarea><br>
+        <input type="submit" value="Save File" class="btn btn-dark">
+        <a href="/"><button class="btn btn-danger">Discard</button></a>
+    </form>
+{% endblock body %}

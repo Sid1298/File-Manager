@@ -23,7 +23,7 @@ body{
 }
 
 .myhead{
-    margin-left: 35%;
+    margin-left: 22%;
 }
 
 .file{
@@ -33,6 +33,16 @@ body{
 .os-action{
     color: crimson;
 }
+
+.new_file_folder{
+    display: inline;
+    font-size: 70%;
+    margin-left: 22%;
+}
+
+/* .file_content{
+    padding: 15%;
+} */
 
 td{
     padding-left: 2%;

@@ -2,12 +2,19 @@
 
 {% block body %}
     <div class="myhead">
-        <h1 style="padding-left: 10%;">Local File System</h1>
+        <h1 style="padding-left: 10%;">File manager</h1>
         <h6 style="padding-left: 0%;"><strong>Current Directory: </strong>{{ mypath }}</h6>
     </div>
     <div>
+        <form action="/md" class="new_file_folder">
+            <input type="text" placeholder="New Folder Name" name="new_folder"/>
+            <input type="submit" value="New Folder">
+        </form>
+        <!-- <form action="/mf" class="new_file_folder">
+            <input type="submit" value="New Text File">
+        </form> -->
         <h5 style="padding-left: 5%;">From here: </h5><br>
-        <!-- <a href="/new_directory"><input style="margin-bottom: 5%;" type="button" value="Make new directory"></a> -->
+        
         <table class="content">
             <tr>
                 <th>Serial #</th>
